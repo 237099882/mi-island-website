@@ -1,7 +1,8 @@
 import ProductCard from "@/components/ProductCard";
 
 async function getProducts() {
-  const res = await fetch("/api/products", { cache: "no-store" });
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
+  const res = await fetch(`${baseUrl}/api/products`, { cache: "no-store" });
   const data = await res.json();
   return data.products;
 }
